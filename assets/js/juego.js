@@ -4,7 +4,7 @@ let deck = [];
 const tipos = ['C', 'D', 'H', 'S'];
 const especiales = ['A', 'J', 'Q', 'K'];
 
-//FUNCIONES
+////**Funciones */
 const crearDeck = ()=> {
     for(let i=2; i <= 10; i++){
         for(let tipo of tipos) {
@@ -18,8 +18,19 @@ const crearDeck = ()=> {
         }
     }
     deck = _.shuffle(deck);
-    console.log(deck);
+    return deck;
 }
 
+const pedirCarta = ()=>{
+
+    if(deck.length === 0){
+        throw 'No ay cartas en el DECK'
+    }
+    const carta =  deck.pop();
+    console.log(carta);
+    return(carta);
+}
+/////*Fin de funciones */
 
 crearDeck();
+pedirCarta(); 
