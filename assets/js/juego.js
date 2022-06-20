@@ -5,6 +5,8 @@ const tipos = ['C', 'D', 'H', 'S'];
 const especiales = ['A', 'J', 'Q', 'K'];
 
 ////**Funciones */
+
+//Esta función crea la varaja y la revuelve
 const crearDeck = ()=> {
     for(let i=2; i <= 10; i++){
         for(let tipo of tipos) {
@@ -30,7 +32,22 @@ const pedirCarta = ()=>{
     console.log(carta);
     return(carta);
 }
+
+const valorCarta = (carta)=>{
+    
+    const valor = carta.substring(0, carta.length - 1);
+    let puntos = 0;
+    console.log(valor);
+
+    if( isNaN(valor)){
+        puntos = (valor === 'A') ? 11 : 10;
+    }
+    else{
+        puntos = valor * 1;
+    }
+    console.log(puntos);
+}
 /////*Fin de funciones */
 
 crearDeck();
-pedirCarta(); 
+const carta = valorCarta(pedirCarta());
