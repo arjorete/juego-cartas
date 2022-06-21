@@ -3,6 +3,13 @@
 let deck = [];
 const tipos = ['C', 'D', 'H', 'S'];
 const especiales = ['A', 'J', 'Q', 'K'];
+let puntosJugador = 0,
+    puntosComputadora = 0;
+
+////**Referencias HTML */
+const btnPedir = document.querySelector('#btnPedir');
+const btnNuevo = document.querySelector('#btnNuevo');
+const marcas = document.querySelectorAll('small');
 
 ////**Funciones */
 
@@ -23,13 +30,14 @@ const crearDeck = ()=> {
     return deck;
 }
 
+crearDeck();
+
 const pedirCarta = ()=>{
 
     if(deck.length === 0){
         throw 'No ay cartas en el DECK'
     }
     const carta =  deck.pop();
-    console.log(carta);
     return(carta);
 }
 
@@ -37,7 +45,6 @@ const valorCarta = (carta)=>{
     
     const valor = carta.substring(0, carta.length - 1);
     let puntos = 0;
-    console.log(valor);
 
     if( isNaN(valor)){
         puntos = (valor === 'A') ? 11 : 10;
@@ -45,9 +52,18 @@ const valorCarta = (carta)=>{
     else{
         puntos = valor * 1;
     }
-    console.log(puntos);
+    return puntos;
 }
 /////*Fin de funciones */
 
-crearDeck();
-const carta = valorCarta(pedirCarta());
+////**Eventos */
+
+btnPedir.addEventListener('click', ()=>{
+    const carta = pedirCarta();
+    puntosJugador =puntosJugador + valorCarta(carta);
+    marcas[0].innerText = puntosJugador;
+});
+
+/////*Fin de eventos */
+
+
