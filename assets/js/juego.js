@@ -10,7 +10,7 @@ let puntosJugador = 0,
 const btnPedir = document.querySelector('#btnPedir');
 const btnNuevo = document.querySelector('#btnNuevo');
 const marcas = document.querySelectorAll('small');
-
+const divJugadorCartas = document.querySelector('#jugador-cartas');
 ////**Funciones */
 
 //Esta función crea la varaja y la revuelve
@@ -62,6 +62,20 @@ btnPedir.addEventListener('click', ()=>{
     const carta = pedirCarta();
     puntosJugador =puntosJugador + valorCarta(carta);
     marcas[0].innerText = puntosJugador;
+
+    const imgCarta = document.createElement('img');
+    imgCarta.src = `assets/cartas/${carta}.png`;
+    imgCarta.classList.add('carta');
+
+    divJugadorCartas.append(imgCarta);
+
+    if(puntosJugador > 21){
+        console.warn('Lo siento, perdiste');
+        btnPedir.disabled = true;
+    }
+    else if (puntosJugador === 21){
+        console.warn('Excelente, llegaste a 21');
+    }
 });
 
 /////*Fin de eventos */
