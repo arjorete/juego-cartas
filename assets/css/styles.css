@@ -1,10 +1,11 @@
-html, body{
+html, body {
     margin: 0px;
-    background-color: #2f6f31;
+    background-color: #2F4F30;
     color: white;
 }
 
-.titulo{
+
+.titulo {
     text-align: center;
     background-color: black;
     color: white;
@@ -12,13 +13,13 @@ html, body{
     font-size: 25px;
 }
 
-.carta{
+.carta {
     position: relative;
     width: 150px;
     left: 100px;
     margin-left: -75px;
 }
 
-#computadora-cartas, #jugador-cartas{
-    height: 220px;
+#computadora-cartas, #jugador-cartas {
+    height: 240px;
 }
